@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINDAFILMS</title>
+    <meta property="og:title" content="LINDAFILMS" />
+    <meta property="og:description" content="Explore the latest projects from LINDAFILMS, including films, games, and more." />
+    <meta property="og:image" content="https://your-domain.com/logo.png" /> <!-- Replace with your hosted logo URL -->
+    <meta property="og:url" content="https://your-domain.com" /> <!-- Replace with your website URL -->
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LINDAFILMS" />
+    <meta name="twitter:description" content="Explore the latest projects from LINDAFILMS, including films, games, and more." />
+    <meta name="twitter:image" content="https://your-domain.com/logo.png" /> <!-- Replace with your hosted logo URL -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Graphik';
+            src: url('https://fonts.cdnfonts.com/css/graphik');
+        }
+        body {
+            font-family: 'Graphik', sans-serif;
+            background-image: url('background.png'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #000000; /* Fallback for pure black */
+        }
+        .section-heading {
+            font-family: 'Helvetica', sans-serif; /* Fallback for Suisse Int’l */
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .hover-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; /* Adjust based on your image size */
+            height: auto;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .section-heading:hover .hover-image {
+            display: block;
+        }
+        header {
+            background-color: transparent; /* Fully transparent header */
+            transition: transform 0.5s ease; /* Smoother transition */
+            transform: translateY(0); /* Default visible state */
+        }
+        header.hidden {
+            transform: translateY(-100%); /* Hide header by moving it up */
+        }
+        .menu-placeholder {
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem; /* Larger size */
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 10px; /* Lower the logo slightly */
+        }
+        .menu-placeholder {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400px; /* Much larger width */
+            height: 100vh; /* Full height */
+            background-color: #000000;
+            z-index: 50;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .dropdown-menu.active {
+            display: block;
+        }
+        .dropdown-menu a {
+            display: block;
+            color: #ffffff;
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem; /* Much larger font size */
+            padding: 20px 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .dropdown-menu a:hover {
+            color: #cccccc;
+        }
+        .close-button {
+            font-family: 'Helvetica', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem; /* Matches menu-placeholder size */
+            color: #ffffff;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover {
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <nav>
+                <span class="menu-placeholder">=</span>
+                <img src="logo.png" alt="Logo" class="h-20 w-auto">
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu" id="dropdownMenu">
+        <span class="close-button" id="closeMenu">X</span>
+        <a href="#games">GAMES</a>
+        <a href="#films">FILMS</a>
+        <a href="#team">TEAM</a>
+        <a href="#tax-rebate">TAX REBATE</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Section 1: Main Headings -->
+            <section class="mb-16">
+                <h1 class="section-heading text-8xl font-bold mb-4">
+                    FRAGIL
+                    <img src="fragil.png" alt="Fragil Info" class="hover-image">
+                </h1>
+                <h1 class="section-heading text-8xl font-bold mb-4">
+                    PUNTO DE QUIEBRE
+                    <img src="punto_de_quiebre.png" alt="Punto de Quiebre Info" class="hover-image">
+                </h1>
+                <h1 class="section-heading text-8xl font-bold mb-4">
+                    RAVE
+                    <img src="rave.png" alt="Rave Info" class="hover-image">
+                </h1>
+                <h1 class="section-heading text-8xl font-bold mb-4">
+                    A GOLPE DE MARTILLO
+                    <img src="a_golpe_de_martillo.png" alt="A Golpe de Martillo Info" class="hover-image">
+                </h1>
+                <h1 class="section-heading text-8xl font-bold mb-4">
+                    MANTIS (desarrollo)
+                    <img src="mantis.png" alt="Mantis Info" class="hover-image">
+                </h1>
+            </section>
+
+            <!-- Section 2: Games -->
+            <section class="mb-16 flex items-center justify-center min-h-screen" id="games">
+                <h1 class="section-heading text-8xl font-bold">
+                    GAMES
+                    <img src="games.png" alt="Games Info" class="hover-image">
+                </h1>
+            </section>
+
+            <!-- Section 3: Films -->
+            <section class="mb-16 flex items-center justify-center min-h-screen" id="films">
+                <h1 class="section-heading text-8xl font-bold">
+                    FILMS
+                    <img src="films.png" alt="Films Info" class="hover-image">
+                </h1>
+            </section>
+
+            <!-- Section 4: Team -->
+            <section class="mb-16 flex items-center justify-center min-h-screen" id="team">
+                <h1 class="section-heading text-8xl font-bold">
+                    TEAM
+                    <img src="team.png" alt="Team Info" class="hover-image">
+                </h1>
+            </section>
+
+            <!-- Section 5: Tax Rebate -->
+            <section class="mb-16 flex items-center justify-center min-h-screen" id="tax-rebate">
+                <h1 class="section-heading text-8xl font-bold">
+                    TAX REBATE
+                    <img src="tax_rebate.png" alt="Tax Rebate Info" class="hover-image">
+                </h1>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm">© 2025 LINDAFILMS. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="text-sm hover:underline">Privacy Policy</a>
+                <a href="#" class="text-sm hover:underline">Terms of Use</a>
+                <a href="#" class="text-sm hover:underline">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll-based header hide/show
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll
+        });
+
+        // Dropdown menu toggle
+        const menuPlaceholder = document.querySelector('.menu-placeholder');
+        const dropdownMenu = document.querySelector('#dropdownMenu');
+        const closeMenu = document.querySelector('#closeMenu');
+
+        menuPlaceholder.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('active');
+            console.log('Menu placeholder clicked');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            dropdownMenu.classList.remove('active');
+            console.log('Close menu clicked');
+        });
+
+        // Smooth scroll for menu links
+        document.querySelectorAll('.dropdown-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    dropdownMenu.classList.remove('active'); // Close menu after click
+                }
+            });
+        });
+    </script>
+</body>
+</html>
