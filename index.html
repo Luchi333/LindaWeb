@@ -102,12 +102,14 @@
             transition: color 0.3s ease;
         }
         .dropdown-menu a:hover {
+            display: block;
+        }
+        .dropdown-menu a:hover {
             color: #cccccc;
         }
         .close-button {
             font-family: 'Helvetica', sans-serif;
             font-weight: 700;
-            font-size: 1.5rem;
             color: #ffffff;
             position: absolute;
             top: 20px;
@@ -115,6 +117,7 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
+
         .close-button:hover {
             color: #cccccc;
         }
@@ -124,18 +127,19 @@
             right: 20px;
             cursor: pointer;
             z-index: 20;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            opacity: 0.3s ease;
         }
+
         .scroll-arrow:hover {
             opacity: 1;
         }
         .scroll-arrow .arrow-line {
             stroke: #ffffff;
-            stroke-width: 1; /* Thin line */
-            transition: transform 0.3s ease-in-out;
+            stroke-width: 1;
+            transition: height 0.3s ease-in-out;
         }
-        .scroll-arrow .arrow-tip {
+
+        .scroll-arrow .arrow {
             fill: #ffffff;
         }
     </style>
@@ -143,8 +147,8 @@
 <body class="bg-black text-white">
     <!-- Header -->
     <header class="fixed top-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <nav>
+        <div class="max-w-full mx-auto">
+            <nav class="px-4">
                 <span class="menu-placeholder">=</span>
                 <img src="logo.png" alt="Logo" class="h-20 w-auto">
             </nav>
@@ -211,7 +215,7 @@
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="films">
                 <h1 class="section-heading text-8xl font-bold">
                     FILMS
-                    <img src="films.png" alt="Films Info" class="hover-image">
+                    <img src="films.gif" alt="Films Info" class="hover-image">
                 </h1>
                 <span class="scroll-arrow" data-target="team">
                     <svg width="24" height="60" viewBox="0 0 24 60">
@@ -296,6 +300,32 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    dropdownMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Smooth scroll for arrows
+        document.querySelectorAll('.scroll-arrow').forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                const targetId = arrow.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Stretch arrow line on scroll
+        const sections = document.querySelectorAll('section');
+        const arrows = document.querySelectorAll('.scroll-arrow');
+
+        window.addEventListener('scroll', () => {
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const arrow = arrows[index];
                 if (arrow && rect.top <= window.innerHeight && rect.bottom >= 0) {
                     const sectionHeight = rect.height;
                     const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
