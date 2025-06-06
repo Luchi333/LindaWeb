@@ -22,14 +22,14 @@
         }
         body {
             font-family: 'Graphik', sans-serif;
-            background-image: url('background.png'); /* Replace with your image path */
+            background-image: url('background.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #000000; /* Fallback for pure black */
+            background-color: #000000;
         }
         .section-heading {
-            font-family: 'Helvetica', sans-serif; /* Fallback for Suisse Int’l */
+            font-family: 'Helvetica', sans-serif;
             font-weight: 700;
             position: relative;
             display: inline-block;
@@ -41,7 +41,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 300px; /* Adjust based on your image size */
+            width: 300px;
             height: auto;
             z-index: 10;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -50,24 +50,24 @@
             display: block;
         }
         header {
-            background-color: transparent; /* Fully transparent header */
-            transition: transform 0.5s ease; /* Smoother transition */
+            background-color: #000000; /* Solid black */
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); /* Softer transition */
             transform: translateY(0); /* Default visible state */
         }
         header.hidden {
-            transform: translateY(-100%); /* Hide header by moving it up */
+            transform: translateY(-100%); /* Hide header by moving up */
         }
         .menu-placeholder {
             font-family: 'Helvetica', sans-serif;
             font-weight: 700;
-            font-size: 1.5rem; /* Larger size */
+            font-size: 1.5rem;
         }
         nav {
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding-top: 10px; /* Lower the logo slightly */
+            padding-top: 10px;
         }
         .menu-placeholder {
             position: absolute;
@@ -81,8 +81,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 400px; /* Much larger width */
-            height: 100vh; /* Full height */
+            width: 400px;
+            height: 100vh;
             background-color: #000000;
             z-index: 50;
             padding: 40px;
@@ -96,7 +96,7 @@
             color: #ffffff;
             font-family: 'Helvetica', sans-serif;
             font-weight: 700;
-            font-size: 2.5rem; /* Much larger font size */
+            font-size: 2.5rem;
             padding: 20px 0;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -107,7 +107,7 @@
         .close-button {
             font-family: 'Helvetica', sans-serif;
             font-weight: 700;
-            font-size: 1.5rem; /* Matches menu-placeholder size */
+            font-size: 1.5rem;
             color: #ffffff;
             position: absolute;
             top: 20px;
@@ -117,6 +117,26 @@
         }
         .close-button:hover {
             color: #cccccc;
+        }
+        .scroll-arrow {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            cursor: pointer;
+            z-index: 20;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .scroll-arrow:hover {
+            opacity: 1;
+        }
+        .scroll-arrow .arrow-line {
+            stroke: #ffffff;
+            stroke-width: 1; /* Thin line */
+            transition: transform 0.3s ease-in-out;
+        }
+        .scroll-arrow .arrow-tip {
+            fill: #ffffff;
         }
     </style>
 </head>
@@ -141,10 +161,10 @@
     </div>
 
     <!-- Main Content -->
-    <main class="pt-20 pb-10">
+    <main class="pt-32 pb-10"> <!-- Increased padding-top from 20 to 32 -->
         <div class="max-w-7xl mx-auto px-4">
             <!-- Section 1: Main Headings -->
-            <section class="mb-16">
+            <section class="mb-16 relative">
                 <h1 class="section-heading text-8xl font-bold mb-4">
                     FRAGIL
                     <img src="fragil.png" alt="Fragil Info" class="hover-image">
@@ -165,34 +185,58 @@
                     MANTIS (desarrollo)
                     <img src="mantis.png" alt="Mantis Info" class="hover-image">
                 </h1>
+                <span class="scroll-arrow" data-target="games">
+                    <svg width="24" height="60" viewBox="0 0 24 60">
+                        <line class="arrow-line" x1="12" y1="0" x2="12" y2="50" />
+                        <path class="arrow-tip" d="M12 60L8 56L12 52L16 56z" />
+                    </svg>
+                </span>
             </section>
 
             <!-- Section 2: Games -->
-            <section class="mb-16 flex items-center justify-center min-h-screen" id="games">
+            <section class="mb-16 flex items-center justify-center min-h-screen relative" id="games">
                 <h1 class="section-heading text-8xl font-bold">
                     GAMES
-                    <img src="games.png" alt="Games Info" class="hover-image">
+                    <img src="games.gif" alt="Games Info" class="hover-image">
                 </h1>
+                <span class="scroll-arrow" data-target="films">
+                    <svg width="24" height="60" viewBox="0 0 24 60">
+                        <line class="arrow-line" x1="12" y1="0" x2="12" y2="50" />
+                        <path class="arrow-tip" d="M12 60L8 56L12 52L16 56z" />
+                    </svg>
+                </span>
             </section>
 
             <!-- Section 3: Films -->
-            <section class="mb-16 flex items-center justify-center min-h-screen" id="films">
+            <section class="mb-16 flex items-center justify-center min-h-screen relative" id="films">
                 <h1 class="section-heading text-8xl font-bold">
                     FILMS
                     <img src="films.png" alt="Films Info" class="hover-image">
                 </h1>
+                <span class="scroll-arrow" data-target="team">
+                    <svg width="24" height="60" viewBox="0 0 24 60">
+                        <line class="arrow-line" x1="12" y1="0" x2="12" y2="50" />
+                        <path class="arrow-tip" d="M12 60L8 56L12 52L16 56z" />
+                    </svg>
+                </span>
             </section>
 
             <!-- Section 4: Team -->
-            <section class="mb-16 flex items-center justify-center min-h-screen" id="team">
+            <section class="mb-16 flex items-center justify-center min-h-screen relative" id="team">
                 <h1 class="section-heading text-8xl font-bold">
                     TEAM
                     <img src="team.png" alt="Team Info" class="hover-image">
                 </h1>
+                <span class="scroll-arrow" data-target="tax-rebate">
+                    <svg width="24" height="60" viewBox="0 0 24 60">
+                        <line class="arrow-line" x1="12" y1="0" x2="12" y2="50" />
+                        <path class="arrow-tip" d="M12 60L8 56L12 52L16 56z" />
+                    </svg>
+                </span>
             </section>
 
             <!-- Section 5: Tax Rebate -->
-            <section class="mb-16 flex items-center justify-center min-h-screen" id="tax-rebate">
+            <section class="mb-16 flex items-center justify-center min-h-screen relative" id="tax-rebate">
                 <h1 class="section-heading text-8xl font-bold">
                     TAX REBATE
                     <img src="tax_rebate.png" alt="Tax Rebate Info" class="hover-image">
@@ -214,21 +258,21 @@
     </footer>
 
     <script>
-        // Scroll-based header hide/show
+        // Scroll-based header hide/show (reversed)
         let lastScrollTop = 0;
         const header = document.querySelector('header');
 
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (currentScroll > lastScrollTop) {
-                // Scrolling down
+            if (currentScroll < lastScrollTop) {
+                // Scrolling up
                 header.classList.add('hidden');
             } else {
-                // Scrolling up
+                // Scrolling down
                 header.classList.remove('hidden');
             }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
         // Dropdown menu toggle
@@ -252,9 +296,15 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                    dropdownMenu.classList.remove('active'); // Close menu after click
+                if (arrow && rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    const sectionHeight = rect.height;
+                    const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
+                    const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4; // Stretch line up to 5x
+                    const arrowLine = arrow.querySelector('.arrow-line');
+                    if (arrowLine) {
+                        arrowLine.setAttribute('y2', 50 * stretchFactor); // Stretch line length
+                    }
+                    arrow.style.opacity = 0.8 + (scrollWithinSection / sectionHeight) * 0.2;
                 }
             });
         });
