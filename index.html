@@ -158,7 +158,7 @@
             display: inline-block;
             width: 16px; /* Reduced size for footer */
             height: 16px;
-            margin: 0 10px;
+            margin: 0 8px; /* Spacing between social icons */
             vertical-align: middle;
         }
         .footer-social .social-icon img {
@@ -168,6 +168,24 @@
         }
         .footer-social .social-icon:hover img {
             opacity: 0.7;
+        }
+        .footer-logo {
+            display: block;
+            width: 80px; /* Matches header logo size */
+            height: auto;
+            margin-right: 16px; /* Space between logo and copyright */
+        }
+        .footer-left, .footer-center, .footer-right {
+            display: flex;
+            align-items: center;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-right a {
+            margin-left: 16px; /* Spacing between links */
         }
     </style>
 </head>
@@ -295,20 +313,27 @@
 
     <!-- Footer -->
     <footer class="bg-black py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="footer-social mb-4">
-                <a href="https://www.instagram.com/lindafilms" class="social-icon" target="_blank">
-                    <img src="your_instagram_logo.png" alt="Instagram Logo"> <!-- Replace with your Instagram logo URL -->
-                </a>
-                <a href="https://www.linkedin.com/company/linda-films" class="social-icon" target="_blank">
-                    <img src="your_linkedin_logo.png" alt="LinkedIn Logo"> <!-- Replace with your LinkedIn logo URL -->
-                </a>
-            </div>
-            <p class="text-sm">© 2025 LINDAFILMS. All rights reserved.</p>
-            <div class="mt-4 space-x-4">
-                <a href="#" class="text-sm hover:underline">Privacy Policy</a>
-                <a href="#" class="text-sm hover:underline">Terms of Use</a>
-                <a href="#" class="text-sm hover:underline">Contact</a>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="logo.png" alt="LINDAFILMS Logo" class="footer-logo"> <!-- Replace with your logo URL if different -->
+                    <p class="text-sm">© 2025 LINDAFILMS. All rights reserved.</p>
+                </div>
+                <div class="footer-center">
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/lindafilms" class="social-icon" target="_blank">
+                            <img src="your_instagram_logo.png" alt="Instagram Logo"> <!-- Replace with your Instagram logo URL -->
+                        </a>
+                        <a href="https://www.linkedin.com/company/linda-films" class="social-icon" target="_blank">
+                            <img src="your_linkedin_logo.png" alt="LinkedIn Logo"> <!-- Replace with your LinkedIn logo URL -->
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="text-sm hover:underline">Privacy Policy</a>
+                    <a href="#" class="text-sm hover:underline">Terms of Use</a>
+                    <a href="#" class="text-sm hover:underline">Contact</a>
+                </div>
             </div>
         </div>
     </footer>
