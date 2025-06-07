@@ -34,6 +34,7 @@
             position: relative;
             display: inline-block;
             cursor: pointer;
+            margin-bottom: 32px; /* Fallback for Tailwind mb-8 */
         }
         .hover-image {
             display: none;
@@ -102,14 +103,26 @@
             transition: color 0.3s ease;
         }
         .dropdown-menu a:hover {
-            display: block;
-        }
-        .dropdown-menu a:hover {
             color: #cccccc;
+        }
+        .dropdown-menu .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: 10px 10px 0 0;
+            vertical-align: middle;
+        }
+        .dropdown-menu .social-icon svg {
+            fill: #ffffff;
+            transition: fill 0.3s ease;
+        }
+        .dropdown-menu .social-icon:hover svg {
+            fill: #cccccc;
         }
         .close-button {
             font-family: 'Helvetica', sans-serif;
             font-weight: 700;
+            font-size: 1.5rem;
             color: #ffffff;
             position: absolute;
             top: 20px;
@@ -117,7 +130,6 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .close-button:hover {
             color: #cccccc;
         }
@@ -127,28 +139,41 @@
             right: 20px;
             cursor: pointer;
             z-index: 20;
-            opacity: 0.3s ease;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
         }
-
         .scroll-arrow:hover {
             opacity: 1;
         }
         .scroll-arrow .arrow-line {
             stroke: #ffffff;
             stroke-width: 1;
-            transition: height 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
-
-        .scroll-arrow .arrow {
+        .scroll-arrow .arrow-tip {
             fill: #ffffff;
+        }
+        .footer-social .social-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+        .footer-social .social-icon svg {
+            fill: #ffffff;
+            transition: fill 0.3s ease;
+        }
+        .footer-social .social-icon:hover svg {
+            fill: #cccccc;
         }
     </style>
 </head>
 <body class="bg-black text-white">
     <!-- Header -->
     <header class="fixed top-0 w-full z-50">
-        <div class="max-w-full mx-auto">
-            <nav class="px-4">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <nav>
                 <span class="menu-placeholder">=</span>
                 <img src="logo.png" alt="Logo" class="h-20 w-auto">
             </nav>
@@ -158,35 +183,47 @@
     <!-- Dropdown Menu -->
     <div class="dropdown-menu" id="dropdownMenu">
         <span class="close-button" id="closeMenu">X</span>
-        <a href="#games">GAMES</a>
-        <a href="#films">FILMS</a>
-        <a href="#team">TEAM</a>
-        <a href="#tax-rebate">TAX REBATE</a>
+        <a href="#games-title">GAMES</a>
+        <a href="#films-title">FILMS</a>
+        <a href="#team-title">TEAM</a>
+        <a href="#tax-rebate-title">TAX REBATE</a>
+        <a href="https://www.instagram.com/yourprofile" class="social-icon" target="_blank">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.24 3.608-1.301 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.627.073-3.043.477-4.406 1.84S1.01 4.582.937 6.209c-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.073 1.627.477 3.043 1.84 4.406s2.779 1.767 4.406 1.84c1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.627-.073 3.043-.477 4.406-1.84s1.767-2.779 1.84-4.406c.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.073-1.627-.477-3.043-1.84-4.406S19.874.65 18.247.577c-1.28-.058-1.688-.072-4.947-.072z"/>
+                <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8z"/>
+                <circle cx="18.406" cy="5.594" r="1.44"/>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/yourcompany" class="social-icon" target="_blank">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.85 0-2.132 1.444-2.132 2.936v5.67H9.357V9.143h3.414v1.557h.048c.475-.899 1.637-1.85 3.368-1.85 3.604 0 4.27 2.372 4.27 5.457v6.145zM5.337 7.586c-1.14 0-2.064-.928-2.064-2.064 0-1.136.924-2.064 2.064-2.064 1.136 0 2.064.928 2.064 2.064 0 1.136-.928 2.064-2.064 2.064zm1.782 12.866H3.555V9.143h3.564v11.309zM22.225 0H1.771C.792 0 0 .792 0 1.771v20.458C0 23.208.792 24 1.771 24h20.458c.979 0 1.771-.792 1.771-1.771V1.771C24 .792 23.208 0 22.225 0z"/>
+            </svg>
+        </a>
     </div>
 
     <!-- Main Content -->
-    <main class="pt-32 pb-10"> <!-- Increased padding-top from 20 to 32 -->
+    <main class="pt-32 pb-10">
         <div class="max-w-7xl mx-auto px-4">
             <!-- Section 1: Main Headings -->
             <section class="mb-16 relative">
-                <h1 class="section-heading text-8xl font-bold mb-4">
+                <h1 class="section-heading text-8xl font-bold mb-8">
                     FRAGIL
                     <img src="fragil.png" alt="Fragil Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-4">
+                <h1 class="section-heading text-8xl font-bold mb-8">
                     PUNTO DE QUIEBRE
                     <img src="punto_de_quiebre.png" alt="Punto de Quiebre Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-4">
-                    RAVE
-                    <img src="rave.png" alt="Rave Info" class="hover-image">
-                </h1>
-                <h1 class="section-heading text-8xl font-bold mb-4">
+                <h1 class="section-heading text-8xl font-bold mb-8">
                     A GOLPE DE MARTILLO
                     <img src="a_golpe_de_martillo.png" alt="A Golpe de Martillo Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-4">
-                    MANTIS (desarrollo)
+                <h1 class="section-heading text-8xl font-bold mb-8">
+                    RAVE
+                    <img src="rave.png" alt="Rave Info" class="hover-image">
+                </h1>
+                <h1 class="section-heading text-8xl font-bold mb-8">
+                    MANTIS
                     <img src="mantis.png" alt="Mantis Info" class="hover-image">
                 </h1>
                 <span class="scroll-arrow" data-target="games">
@@ -199,7 +236,7 @@
 
             <!-- Section 2: Games -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="games">
-                <h1 class="section-heading text-8xl font-bold">
+                <h1 class="section-heading text-8xl font-bold" id="games-title">
                     GAMES
                     <img src="games.gif" alt="Games Info" class="hover-image">
                 </h1>
@@ -213,7 +250,7 @@
 
             <!-- Section 3: Films -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="films">
-                <h1 class="section-heading text-8xl font-bold">
+                <h1 class="section-heading text-8xl font-bold" id="films-title">
                     FILMS
                     <img src="films.gif" alt="Films Info" class="hover-image">
                 </h1>
@@ -227,9 +264,9 @@
 
             <!-- Section 4: Team -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="team">
-                <h1 class="section-heading text-8xl font-bold">
+                <h1 class="section-heading text-8xl font-bold" id="team-title">
                     TEAM
-                    <img src="team.png" alt="Team Info" class="hover-image">
+                    <img src="team.gif" alt="Team Info" class="hover-image">
                 </h1>
                 <span class="scroll-arrow" data-target="tax-rebate">
                     <svg width="24" height="60" viewBox="0 0 24 60">
@@ -241,9 +278,9 @@
 
             <!-- Section 5: Tax Rebate -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="tax-rebate">
-                <h1 class="section-heading text-8xl font-bold">
+                <h1 class="section-heading text-8xl font-bold" id="tax-rebate-title">
                     TAX REBATE
-                    <img src="tax_rebate.png" alt="Tax Rebate Info" class="hover-image">
+                    <img src="tax_rebate.gif" alt="Tax Rebate Info" class="hover-image">
                 </h1>
             </section>
         </div>
@@ -252,6 +289,20 @@
     <!-- Footer -->
     <footer class="bg-black py-6">
         <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="footer-social mb-4">
+                <a href="https://www.instagram.com/yourprofile" class="social-icon" target="_blank">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.24 3.608-1.301 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.627.073-3.043.477-4.406 1.84S1.01 4.582.937 6.209c-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.073 1.627.477 3.043 1.84 4.406s2.779 1.767 4.406 1.84c1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.627-.073 3.043-.477 4.406-1.84s1.767-2.779 1.84-4.406c.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.073-1.627-.477-3.043-1.84-4.406S19.874.65 18.247.577c-1.28-.058-1.688-.072-4.947-.072z"/>
+                        <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8z"/>
+                        <circle cx="18.406" cy="5.594" r="1.44"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/yourcompany" class="social-icon" target="_blank">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.85 0-2.132 1.444-2.132 2.936v5.67H9.357V9.143h3.414v1.557h.048c.475-.899 1.637-1.85 3.368-1.85 3.604 0 4.27 2.372 4.27 5.457v6.145zM5.337 7.586c-1.14 0-2.064-.928-2.064-2.064 0-1.136.924-2.064 2.064-2.064 1.136 0 2.064.928 2.064 2.064 0 1.136-.928 2.064-2.064 2.064zm1.782 12.866H3.555V9.143h3.564v11.309zM22.225 0H1.771C.792 0 0 .792 0 1.771v20.458C0 23.208.792 24 1.771 24h20.458c.979 0 1.771-.792 1.771-1.771V1.771C24 .792 23.208 0 22.225 0z"/>
+                    </svg>
+                </a>
+            </div>
             <p class="text-sm">© 2025 LINDAFILMS. All rights reserved.</p>
             <div class="mt-4 space-x-4">
                 <a href="#" class="text-sm hover:underline">Privacy Policy</a>
@@ -262,18 +313,18 @@
     </footer>
 
     <script>
-        // Scroll-based header hide/show (reversed)
+        // Scroll-based header hide/show
         let lastScrollTop = 0;
         const header = document.querySelector('header');
 
         window.addEventListener('scroll', () => {
             let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (currentScroll < lastScrollTop) {
-                // Scrolling up
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
                 header.classList.add('hidden');
             } else {
-                // Scrolling down
+                // Scrolling up
                 header.classList.remove('hidden');
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
@@ -294,14 +345,20 @@
             console.log('Close menu clicked');
         });
 
-        // Smooth scroll for menu links
-        document.querySelectorAll('.dropdown-menu a').forEach(anchor => {
+        // Smooth scroll for menu links to exact titles
+        document.querySelectorAll('.dropdown-menu a:not(.social-icon)').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    const rect = targetElement.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const offsetTop = rect.top + scrollTop - 128; // Adjust for header height (pt-32)
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                     dropdownMenu.classList.remove('active');
                 }
             });
