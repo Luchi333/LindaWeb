@@ -192,17 +192,17 @@
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             body {
-                overscroll-behavior-y: none; /* Prevent pull-to-refresh */
-                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                overscroll-behavior-y: none;
+                -webkit-overflow-scrolling: touch;
             }
             .dropdown-menu {
                 width: 100%;
                 padding: 16px;
-                overflow-y: auto; /* Allow scrolling if content overflows */
+                overflow-y: auto;
             }
             .dropdown-menu a {
-                font-size: 1.5rem; /* Smaller font for better fit */
-                padding: 12px 0; /* Reduced padding */
+                font-size: 1.5rem;
+                padding: 12px 0;
             }
             .dropdown-menu .social-icon {
                 width: 28px;
@@ -210,40 +210,40 @@
                 margin: 8px 8px 0 0;
             }
             .close-button {
-                font-size: 1.2rem; /* Smaller close button */
+                font-size: 1.2rem;
                 top: 12px;
                 right: 12px;
             }
             .section-heading {
-                font-size: 2.5rem; /* Adjusted for better mobile readability */
-                line-height: 1.2; /* Prevent text overlap */
-                margin-bottom: 16px; /* Tighter spacing */
+                font-size: 2rem; /* Smaller titles for mobile */
+                line-height: 1.2;
+                margin-bottom: 16px;
             }
             .hover-image {
-                width: 180px; /* Slightly smaller for mobile */
-                max-width: 85vw; /* Fit within viewport */
-                max-height: 50vh; /* Prevent overflow */
+                width: 180px;
+                max-width: 85vw;
+                max-height: 50vh;
             }
             .scroll-arrow {
-                right: 8px; /* Closer to edge */
-                transform: scale(0.8); /* Slightly smaller arrow */
+                right: 8px;
+                transform: scale(0.8);
             }
             .scroll-arrow svg {
-                width: 20px; /* Smaller arrow size */
+                width: 20px;
                 height: 50px;
             }
             .footer-container {
-                flex-direction: column; /* Stack vertically */
+                flex-direction: column;
                 align-items: flex-start;
-                gap: 12px; /* Spacing between sections */
+                gap: 12px;
             }
             .footer-left, .footer-center, .footer-right {
-                width: 100%; /* Full width for each section */
+                width: 100%;
                 justify-content: center;
                 text-align: center;
             }
             .footer-left {
-                flex-direction: row; /* Keep logo and text side by side */
+                flex-direction: row;
                 justify-content: center;
             }
             .footer-center {
@@ -251,44 +251,44 @@
             }
             .footer-right {
                 justify-content: center;
-                gap: 8px; /* Tighter link spacing */
+                gap: 8px;
             }
             .footer-right a {
-                margin-left: 0; /* Remove margin for centered links */
-                font-size: 0.875rem; /* Slightly larger for readability */
+                margin-left: 0;
+                font-size: 0.875rem;
             }
             .footer-logo {
-                width: 50px; /* Smaller logo */
+                width: 50px;
                 margin-right: 8px;
             }
             .footer-social .social-icon {
-                width: 20px; /* Slightly larger icons for touch */
+                width: 20px;
                 height: 20px;
                 margin: 0 6px;
             }
             main {
-                padding-top: 80px; /* Adjust for smaller header */
+                padding-top: 80px;
             }
             section {
-                min-height: auto; /* Allow sections to size naturally */
-                padding: 16px 0; /* Consistent padding */
+                min-height: auto;
+                padding: 16px 0;
             }
             #gif-section img {
-                max-width: 90vw; /* Ensure GIF fits screen */
+                max-width: 90vw;
                 height: auto;
             }
         }
         @media (max-width: 480px) {
             .section-heading {
-                font-size: 2rem; /* Further reduce for small screens */
-                word-break: break-word; /* Prevent text overflow */
+                font-size: 1.5rem; /* Even smaller for small screens */
+                word-break: break-word;
             }
             .hover-image {
-                width: 140px; /* Smaller for tiny screens */
+                width: 140px;
                 max-width: 80vw;
             }
             .dropdown-menu a {
-                font-size: 1.2rem; /* Even smaller menu links */
+                font-size: 1.2rem;
                 padding: 8px 0;
             }
             .dropdown-menu .social-icon {
@@ -300,14 +300,14 @@
             }
             .scroll-arrow {
                 right: 4px;
-                transform: scale(0.7); /* Smaller arrow */
+                transform: scale(0.7);
             }
             .footer-right a {
-                font-size: 0.75rem; /* Smaller links */
+                font-size: 0.75rem;
                 padding: 0 4px;
             }
             .footer-logo {
-                width: 40px; /* Tiny logo for small screens */
+                width: 40px;
             }
             .footer-social .social-icon {
                 width: 18px;
@@ -481,6 +481,13 @@
                 header.classList.remove('hidden');
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+            // Hide hover images on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.section-heading').forEach(heading => {
+                    heading.classList.remove('active');
+                });
+            }
         });
 
         // Dropdown menu toggle
@@ -541,6 +548,7 @@
                     const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
                     const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4;
                     const arrowLine = arrow.querySelector('.arrow-line');
+                    uplift
                     if (arrowLine) {
                         arrowLine.setAttribute('y2', 50 * stretchFactor);
                     }
