@@ -92,7 +92,6 @@
             left: 0;
             width: 400px;
             height: 100vh;
-            height: 100vh;
             background-color: #000000;
             z-index: 50;
             padding: 40px;
@@ -284,7 +283,7 @@
             #gif-section img {
                 max-width: 90vw;
                 height: auto;
-                display: block; /* Ensure GIF displays */
+                display: block;
             }
         }
         @media (max-width: 480px) {
@@ -478,7 +477,7 @@
     </footer>
 
     <script>
-        // Scroll-based header hide/show and image fade on mobile
+        // Scroll-based header hide/show and image fade
         let lastScrollTop = 0;
         const header = document.querySelector('header');
 
@@ -493,15 +492,13 @@
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 
-            // Hide active images on scroll (mobile only)
-            if (window.innerWidth <= 768) {
-                document.querySelectorAll('.section-heading.active').forEach(heading => {
-                    heading.classList.add('fading');
-                    setTimeout(() => {
-                        heading.classList.remove('active', 'fading');
-                    }, 400); // Match CSS transition duration
-                });
-            }
+            // Fade out active images/GIFs on scroll (desktop and mobile)
+            document.querySelectorAll('.section-heading.active').forEach(heading => {
+                heading.classList.add('fading');
+                setTimeout(() => {
+                    heading.classList.remove('active', 'fading');
+                }, 400); // Match CSS transition duration
+            });
 
             // Stretch arrow line on scroll
             const sections = document.querySelectorAll('section');
