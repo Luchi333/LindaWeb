@@ -483,7 +483,7 @@
         </div>
     </footer>
 
-    <script>
+<script>
     let lastScrollTop = 0;
     const header = document.querySelector('header');
 
@@ -497,6 +497,17 @@
             header.classList.remove('hidden');
         }
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+        // Ocultar imágenes al hacer scroll
+        document.querySelectorAll('.section-heading.active, .section-heading:hover').forEach(heading => {
+            heading.classList.add('fading');
+            setTimeout(() => {
+                heading.classList.remove('active', 'fading');
+            }, 400); // coincide con el CSS: transition: opacity 0.4s
+        });
+    });
+</script>
+
 
         // ✅ NUEVO: Ocultar imagen activa al hacer scroll en móvil
         if (window.innerWidth <= 768) {
