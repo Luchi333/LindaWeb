@@ -37,31 +37,26 @@
             cursor: pointer;
             margin-bottom: 32px;
         }
-    .hover-image {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: auto;
-    z-index: 10;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.section-heading.active .hover-image,
-.section-heading:hover .hover-image {
-    display: block;
-    opacity: 1;
-}
-
-.section-heading.fading .hover-image {
-    opacity: 0;
-}
-        .section-heading:hover .hover-image, .section-heading.active .hover-image {
+        .hover-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: auto;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .section-heading:hover .hover-image,
+        .section-heading.active .hover-image {
             display: block;
+            opacity: 1;
+        }
+        .section-heading.fading .hover-image {
+            opacity: 0;
         }
         header {
             background-color: #000000;
@@ -96,6 +91,7 @@
             top: 0;
             left: 0;
             width: 400px;
+            height: 100vh;
             height: 100vh;
             background-color: #000000;
             z-index: 50;
@@ -202,12 +198,11 @@
         }
 
         /* Mobile-specific styles */
-      @media (max-width: 768px) {
-    .hover-image {
-        width: 240px;
-        max-width: 90vw;
-        max-height: 60vh;
-    }
+        @media (max-width: 768px) {
+            body {
+                overscroll-behavior-y: none;
+                -webkit-overflow-scrolling: touch;
+            }
             .dropdown-menu {
                 width: 100%;
                 padding: 16px;
@@ -228,14 +223,14 @@
                 right: 12px;
             }
             .section-heading {
-                font-size: 2rem; /* Smaller titles for mobile */
+                font-size: 2rem;
                 line-height: 1.2;
                 margin-bottom: 16px;
             }
             .hover-image {
-                width: 180px;
-                max-width: 85vw;
-                max-height: 50vh;
+                width: 200px;
+                max-width: 90vw;
+                max-height: 60vh;
             }
             .scroll-arrow {
                 right: 8px;
@@ -286,33 +281,32 @@
                 min-height: auto;
                 padding: 16px 0;
             }
-#gif-section img {
-    max-width: 90vw;
-    height: auto;
-}
-}
-
-@media (max-width: 480px) {
-    .hover-image {
-        width: 200px;
-        max-width: 90vw;
-        max-height: 60vh;
-    }
-
-    .dropdown-menu a {
-        font-size: 1.2rem;
-        padding: 8px 0;
-    }
-
-    .dropdown-menu .social-icon {
-        width: 24px;
-        height: 24px;
-    }
-
-    .close-button {
-        font-size: 1rem;
-    }
-
+            #gif-section img {
+                max-width: 90vw;
+                height: auto;
+                display: block; /* Ensure GIF displays */
+            }
+        }
+        @media (max-width: 480px) {
+            .section-heading {
+                font-size: 1.5rem;
+                word-break: break-word;
+            }
+            .hover-image {
+                width: 180px;
+                max-width: 80vw;
+                max-height: 50vh;
+            }
+            .dropdown-menu a {
+                font-size: 1.2rem;
+                padding: 8px 0;
+            }
+            .dropdown-menu .social-icon {
+                width: 24px;
+                height: 24px;
+            }
+            .close-button {
+                font-size: 1rem;
             }
             .scroll-arrow {
                 right: 4px;
@@ -363,23 +357,23 @@
         <div class="max-w-7xl mx-auto px-4">
             <!-- Section 1: Main Headings -->
             <section class="mb-16 relative min-h-fit">
-<h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
                     FRAGIL
                     <img src="fragil.png" alt="Fragil Info" class="hover-image">
                 </h1>
-<h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
                     PUNTO DE QUIEBRE
                     <img src="punto_de_quiebre.png" alt="Punto de Quiebre Info" class="hover-image">
                 </h1>
-<h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
                     A GOLPE DE MARTILLO
                     <img src="a_golpe_de_martillo.png" alt="A Golpe de Martillo Info" class="hover-image">
                 </h1>
-<h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
                     RAVE
                     <img src="rave.png" alt="Rave Info" class="hover-image">
                 </h1>
-<h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
                     MANTIS
                     <img src="mantis.png" alt="Mantis Info" class="hover-image">
                 </h1>
@@ -406,7 +400,7 @@
 
             <!-- Section 2: Games -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="games">
-<h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="games-title">
+                <h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="games-title">
                     GAMES
                     <img src="games.gif" alt="Games Info" class="hover-image">
                 </h1>
@@ -420,7 +414,7 @@
 
             <!-- Section 3: Films -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="films">
-<h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="films-title">
+                <h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="films-title">
                     FILMS
                     <img src="films.gif" alt="Films Info" class="hover-image">
                 </h1>
@@ -434,7 +428,7 @@
 
             <!-- Section 4: Team -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="team">
-<h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="team-title">
+                <h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="team-title">
                     TEAM
                     <img src="team.gif" alt="Team Info" class="hover-image">
                 </h1>
@@ -448,7 +442,7 @@
 
             <!-- Section 5: Tax Rebate -->
             <section class="mb-16 flex items-center justify-center min-h-screen relative" id="tax-rebate">
-<h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="tax-rebate-title">
+                <h1 class="section-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold" id="tax-rebate-title">
                     TAX REBATE
                     <img src="tax_rebate.gif" alt="Tax Rebate Info" class="hover-image">
                 </h1>
@@ -483,64 +477,49 @@
         </div>
     </footer>
 
-<script>
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
+    <script>
+        // Scroll-based header hide/show and image fade on mobile
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Mostrar/ocultar header al hacer scroll
-        if (currentScroll > lastScrollTop) {
-            header.classList.add('hidden');
-        } else {
-            header.classList.remove('hidden');
-        }
-
-        // Solo ocultar imagen si es en móvil y ya está activa
-        if (window.innerWidth <= 768 && currentScroll > lastScrollTop) {
-            document.querySelectorAll('.section-heading.active').forEach(heading => {
-                heading.classList.add('fading');
-                setTimeout(() => {
-                    heading.classList.remove('active', 'fading');
-                }, 400); // coincide con el CSS
-            });
-        }
-
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    });
-</script>
-<script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const closeButton = document.querySelector('.close-button');
-
-    if (menuToggle && dropdownMenu) {
-        menuToggle.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('open');
-        });
-    }
-
-    if (closeButton && dropdownMenu) {
-        closeButton.addEventListener('click', () => {
-            dropdownMenu.classList.remove('open');
-        });
-    }
-</script>
-
-
-
-        // ✅ NUEVO: Ocultar imagen activa al hacer scroll en móvil
-        if (window.innerWidth <= 768) {
-            document.querySelectorAll('.section-heading.active').forEach(heading => {
-                heading.classList.remove('active');
-            });
-            
-        }
-    });
-    </script>
-
+            // Header hide/show
+            if (currentScroll > lastScrollTop) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
             }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+            // Hide active images on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.section-heading.active').forEach(heading => {
+                    heading.classList.add('fading');
+                    setTimeout(() => {
+                        heading.classList.remove('active', 'fading');
+                    }, 400); // Match CSS transition duration
+                });
+            }
+
+            // Stretch arrow line on scroll
+            const sections = document.querySelectorAll('section');
+            const arrows = document.querySelectorAll('.scroll-arrow');
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const arrow = arrows[index];
+                if (arrow && rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    const sectionHeight = rect.height;
+                    const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
+                    const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4;
+                    const arrowLine = arrow.querySelector('.arrow-line');
+                    if (arrowLine) {
+                        arrowLine.setAttribute('y2', 50 * stretchFactor);
+                    }
+                    arrow.style.opacity = 0.8 + (scrollWithinSection / sectionHeight) * 0.2;
+                }
+            });
         });
 
         // Dropdown menu toggle
@@ -548,15 +527,19 @@
         const dropdownMenu = document.querySelector('#dropdownMenu');
         const closeMenu = document.querySelector('#closeMenu');
 
-        menuPlaceholder.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('active');
-            console.log('Menu placeholder clicked');
-        });
+        if (menuPlaceholder && dropdownMenu) {
+            menuPlaceholder.addEventListener('click', () => {
+                dropdownMenu.classList.toggle('active');
+                console.log('Menu placeholder clicked');
+            });
+        }
 
-        closeMenu.addEventListener('click', () => {
-            dropdownMenu.classList.remove('active');
-            console.log('Close menu clicked');
-        });
+        if (closeMenu && dropdownMenu) {
+            closeMenu.addEventListener('click', () => {
+                dropdownMenu.classList.remove('active');
+                console.log('Close menu clicked');
+            });
+        }
 
         // Smooth scroll for menu links to exact titles
         document.querySelectorAll('.dropdown-menu a:not(.social-icon)').forEach(anchor => {
@@ -588,37 +571,28 @@
             });
         });
 
-        // Stretch arrow line on scroll
-        const sections = document.querySelectorAll('section');
-        const arrows = document.querySelectorAll('.scroll-arrow');
-
-        window.addEventListener('scroll', () => {
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                const arrow = arrows[index];
-                if (arrow && rect.top <= window.innerHeight && rect.bottom >= 0) {
-                    const sectionHeight = rect.height;
-                    const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
-                    const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4;
-                    const arrowLine = arrow.querySelector('.arrow-line');
-                    uplift
-                    if (arrowLine) {
-                        arrowLine.setAttribute('y2', 50 * stretchFactor);
-                    }
-                    arrow.style.opacity = 0.8 + (scrollWithinSection / sectionHeight) * 0.2;
-                }
-            });
-        });
-
         // Touch event for section headings on mobile
+        let touchTimeout;
         document.querySelectorAll('.section-heading').forEach(heading => {
             heading.addEventListener('touchstart', function(e) {
                 e.preventDefault();
+                // Remove active class from other headings
+                document.querySelectorAll('.section-heading').forEach(otherHeading => {
+                    if (otherHeading !== heading) {
+                        otherHeading.classList.remove('active', 'fading');
+                    }
+                });
+                // Add active class to current heading
+                clearTimeout(touchTimeout);
                 this.classList.add('active');
             }, { passive: false });
+
             heading.addEventListener('touchend', function() {
-                this.classList.remove('active');
+                touchTimeout = setTimeout(() => {
+                    this.classList.remove('active');
+                }, 400); // Match CSS transition duration
             }, { passive: true });
+
             heading.addEventListener('touchmove', function(e) {
                 e.preventDefault();
             }, { passive: false });
