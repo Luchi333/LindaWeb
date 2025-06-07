@@ -37,17 +37,29 @@
             cursor: pointer;
             margin-bottom: 32px;
         }
-        .hover-image {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: auto;
-            z-index: 10;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
+    .hover-image {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: auto;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.section-heading.active .hover-image,
+.section-heading:hover .hover-image {
+    display: block;
+    opacity: 1;
+}
+
+.section-heading.fading .hover-image {
+    opacity: 0;
+}
         .section-heading:hover .hover-image, .section-heading.active .hover-image {
             display: block;
         }
@@ -472,25 +484,30 @@
     </footer>
 
     <script>
-        // Scroll-based header hide/show
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
 
-        window.addEventListener('scroll', () => {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (currentScroll > lastScrollTop) {
-                header.classList.add('hidden');
-            } else {
-                header.classList.remove('hidden');
-            }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        // Mostrar/ocultar header al hacer scroll
+        if (currentScroll > lastScrollTop) {
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 
-            // Hide hover images on scroll (mobile only)
-            if (window.innerWidth <= 768) {
-                document.querySelectorAll('.section-heading').forEach(heading => {
-                    heading.classList.remove('active');
-                });
+        // ✅ NUEVO: Ocultar imagen activa al hacer scroll en móvil
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.section-heading.active').forEach(heading => {
+                heading.classList.remove('active');
+            });
+            
+        }
+    });
+    </script>
+
             }
         });
 
