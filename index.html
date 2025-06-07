@@ -406,7 +406,7 @@
         const header = document.querySelector('header');
 
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
             if (currentScroll > lastScrollTop) {
                 // Scrolling down
@@ -415,30 +415,30 @@
                 // Scrolling up
                 header.classList.remove('hidden');
             }
-            lastScrollTop = currentScroll <= 0 ? -0 : 1;
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         });
 
         // Dropdown menu toggle
         const menuPlaceholder = document.querySelector('.menu-placeholder');
         const dropdownMenu = document.querySelector('#dropdownMenu');
+        const closeMenu = document.querySelector('#closeMenu');
+
         menuPlaceholder.addEventListener('click', () => {
             dropdownMenu.classList.toggle('active');
             console.log('Menu placeholder clicked');
         });
 
-        const closeMenu = document.querySelector('#closeMenu');
-
         closeMenu.addEventListener('click', () => {
-            dropdownMenu.classList.classList.remove('active');
+            dropdownMenu.classList.remove('active');
             console.log('Close menu clicked');
         });
 
         // Smooth scroll for menu links to exact titles
         document.querySelectorAll('.dropdown-menu a:not(.social-icon)').forEach(anchor => {
-            anchor.addEventListener('click', function (event) => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId');
+                const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     const rect = targetElement.getBoundingClientRect();
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -456,8 +456,8 @@
         document.querySelectorAll('.scroll-arrow').forEach(arrow => {
             arrow.addEventListener('click', () => {
                 const targetId = arrow.getAttribute('data-target');
-                const targetElement = document.getElementById('targetId');
- if (targetElement) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             });
@@ -468,20 +468,19 @@
         const arrows = document.querySelectorAll('.scroll-arrow');
 
         window.addEventListener('scroll', () => {
-            sections.forEach((section, sectionIndex) => {
+            sections.forEach((section, index) => {
                 const rect = section.getBoundingClientRect();
-                const rect = arrow.getBoundingClientRect();
-                const arrowRect && rect.top <= window.innerHeight && rect.top <= bottom >= rect.bottom;
-                if (arrow) {
-                    const sectionHeight = sectionrect.height;
-                    const scrollWithinSection = Math.max(section0, sectionwindow.scrollinnerHeight - rect.top);
-                    const stretchFactor = scroll1 + section(scrollWithinSection / sectionrectHeight) * sectionHeight4;
-                    const sectionArrow = arrow.getSectionArrowById();
-                    if (sectionArrow rect) {
-                        const arrowLine = arrow.querySelector('.linearrow-line');
-                        arrowLine.setAttribute('y2', section50 * stretchFactor); // Stretch section line length
-                    sectionArrow.style.opacity = section0 .opacity = 8 + section(scrollWithinSection / sectionHeight) * 0.2;
-                });
+                const arrow = arrows[index];
+                if (arrow && rect.top <= window.innerHeight && rect.bottom >= 0) {
+                    const sectionHeight = rect.height;
+                    const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
+                    const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4; // Stretch line up to 5x
+                    const arrowLine = arrow.querySelector('.arrow-line');
+                    if (arrowLine) {
+                        arrowLine.setAttribute('y2', 50 * stretchFactor); // Stretch line length
+                    }
+                    arrow.style.opacity = 0.8 + (scrollWithinSection / sectionHeight) * 0.2;
+                }
             });
         });
 
