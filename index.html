@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LINDAFILMS</title>
     <meta property="og:title" content="LINDAFILMS" />
     <meta property="og:description" content="Explore the latest projects from LINDAFILMS, including films, games, and more." />
-    <meta property="og:image" content="https://your-domain.com/logo.png" /> <!-- Replace with your hosted logo URL -->
-    <meta property="og:url" content="https://your-domain.com" /> <!-- Replace with your website URL -->
+    <meta property="og:image" content="https://your-domain.com/logo.png" />
+    <meta property="og:url" content="https://your-domain.com" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="LINDAFILMS" />
     <meta name="twitter:description" content="Explore the latest projects from LINDAFILMS, including films, games, and more." />
-    <meta name="twitter:image" content="https://your-domain.com/logo.png" /> <!-- Replace with your hosted logo URL -->
+    <meta name="twitter:image" content="https://your-domain.com/logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -27,7 +27,7 @@
             background-position: center;
             background-attachment: fixed;
             background-color: #000000;
-            overscroll-behavior: none; /* Prevent pull-to-refresh issues on mobile */
+            overscroll-behavior: none;
         }
         .section-heading {
             font-family: 'Helvetica', sans-serif;
@@ -35,7 +35,7 @@
             position: relative;
             display: inline-block;
             cursor: pointer;
-            margin-bottom: 32px; /* Fallback for Tailwind mb-8 */
+            margin-bottom: 32px;
         }
         .hover-image {
             display: none;
@@ -52,12 +52,12 @@
             display: block;
         }
         header {
-            background-color: #000000; /* Solid black */
-            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); /* Softer transition */
-            transform: translateY(0); /* Default visible state */
+            background-color: #000000;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
         }
         header.hidden {
-            transform: translateY(-100%); /* Hide header by moving up */
+            transform: translateY(-100%);
         }
         .menu-placeholder {
             font-family: 'Helvetica', sans-serif;
@@ -108,7 +108,7 @@
         }
         .dropdown-menu .social-icon {
             display: inline-block;
-            width: 32px; /* Reduced size for dropdown menu */
+            width: 32px;
             height: 32px;
             margin: 10px 10px 0 0;
             vertical-align: middle;
@@ -157,9 +157,9 @@
         }
         .footer-social .social-icon {
             display: inline-block;
-            width: 16px; /* Reduced size for footer */
+            width: 16px;
             height: 16px;
-            margin: 0 8px; /* Spacing between social icons */
+            margin: 0 8px;
             vertical-align: middle;
         }
         .footer-social .social-icon img {
@@ -172,9 +172,9 @@
         }
         .footer-logo {
             display: block;
-            width: 80px; /* Matches header logo size */
+            width: 80px;
             height: auto;
-            margin-right: 16px; /* Space between logo and copyright */
+            margin-right: 16px;
         }
         .footer-left, .footer-center, .footer-right {
             display: flex;
@@ -186,67 +186,132 @@
             align-items: center;
         }
         .footer-right a {
-            margin-left: 16px; /* Spacing between links */
+            margin-left: 16px;
         }
 
         /* Mobile-specific styles */
         @media (max-width: 768px) {
+            body {
+                overscroll-behavior-y: none; /* Prevent pull-to-refresh */
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            }
             .dropdown-menu {
-                width: 100%; /* Full width on mobile */
-                padding: 20px; /* Reduced padding */
+                width: 100%;
+                padding: 16px;
+                overflow-y: auto; /* Allow scrolling if content overflows */
             }
             .dropdown-menu a {
-                font-size: 1.8rem; /* Smaller font size for menu links */
+                font-size: 1.5rem; /* Smaller font for better fit */
+                padding: 12px 0; /* Reduced padding */
             }
             .dropdown-menu .social-icon {
-                width: 24px; /* Smaller icons for mobile */
-                height: 24px;
+                width: 28px;
+                height: 28px;
+                margin: 8px 8px 0 0;
+            }
+            .close-button {
+                font-size: 1.2rem; /* Smaller close button */
+                top: 12px;
+                right: 12px;
             }
             .section-heading {
-                font-size: 2.5rem; /* Reduce title size for mobile */
+                font-size: 2.5rem; /* Adjusted for better mobile readability */
+                line-height: 1.2; /* Prevent text overlap */
+                margin-bottom: 16px; /* Tighter spacing */
             }
             .hover-image {
-                width: 200px; /* Smaller hover images for mobile */
-                max-width: 90vw; /* Ensure it fits within viewport */
+                width: 180px; /* Slightly smaller for mobile */
+                max-width: 85vw; /* Fit within viewport */
+                max-height: 50vh; /* Prevent overflow */
             }
             .scroll-arrow {
-                right: 10px; /* Closer to edge on mobile */
+                right: 8px; /* Closer to edge */
+                transform: scale(0.8); /* Slightly smaller arrow */
+            }
+            .scroll-arrow svg {
+                width: 20px; /* Smaller arrow size */
+                height: 50px;
             }
             .footer-container {
-                flex-wrap: wrap; /* Allow wrapping if needed */
-                justify-content: space-between;
+                flex-direction: column; /* Stack vertically */
+                align-items: flex-start;
+                gap: 12px; /* Spacing between sections */
             }
             .footer-left, .footer-center, .footer-right {
-                flex: 1 1 auto; /* Flexible growth */
+                width: 100%; /* Full width for each section */
+                justify-content: center;
+                text-align: center;
             }
             .footer-left {
-                flex: 0 0 auto; /* Prevent stretching */
+                flex-direction: row; /* Keep logo and text side by side */
+                justify-content: center;
             }
             .footer-center {
                 justify-content: center;
-                flex: 0 0 auto;
             }
             .footer-right {
-                justify-content: flex-end;
-                flex: 0 0 auto;
+                justify-content: center;
+                gap: 8px; /* Tighter link spacing */
             }
             .footer-right a {
-                margin-left: 8px; /* Tighter spacing on mobile */
-                font-size: 0.75rem; /* Smaller link text */
+                margin-left: 0; /* Remove margin for centered links */
+                font-size: 0.875rem; /* Slightly larger for readability */
             }
             .footer-logo {
-                width: 60px; /* Slightly smaller logo on mobile */
+                width: 50px; /* Smaller logo */
+                margin-right: 8px;
+            }
+            .footer-social .social-icon {
+                width: 20px; /* Slightly larger icons for touch */
+                height: 20px;
+                margin: 0 6px;
+            }
+            main {
+                padding-top: 80px; /* Adjust for smaller header */
+            }
+            section {
+                min-height: auto; /* Allow sections to size naturally */
+                padding: 16px 0; /* Consistent padding */
+            }
+            #gif-section img {
+                max-width: 90vw; /* Ensure GIF fits screen */
+                height: auto;
             }
         }
         @media (max-width: 480px) {
             .section-heading {
-                font-size: 2rem; /* Further reduce title size */
+                font-size: 2rem; /* Further reduce for small screens */
+                word-break: break-word; /* Prevent text overflow */
             }
             .hover-image {
-                width: 150px; /* Even smaller for very small screens */
+                width: 140px; /* Smaller for tiny screens */
+                max-width: 80vw;
+            }
+            .dropdown-menu a {
+                font-size: 1.2rem; /* Even smaller menu links */
+                padding: 8px 0;
+            }
+            .dropdown-menu .social-icon {
+                width: 24px;
+                height: 24px;
+            }
+            .close-button {
+                font-size: 1rem;
+            }
+            .scroll-arrow {
+                right: 4px;
+                transform: scale(0.7); /* Smaller arrow */
             }
             .footer-right a {
-                margin-left: 4px; /* Even tighter spacing */
+                font-size: 0.75rem; /* Smaller links */
+                padding: 0 4px;
+            }
+            .footer-logo {
+                width: 40px; /* Tiny logo for small screens */
+            }
+            .footer-social .social-icon {
+                width: 18px;
+                height: 18px;
             }
         }
     </style>
@@ -270,10 +335,10 @@
         <a href="#team-title">TEAM</a>
         <a href="#tax-rebate-title">TAX REBATE</a>
         <a href="https://www.instagram.com/lindafilms" class="social-icon" target="_blank">
-            <img src="your_instagram_logo.png" alt="Instagram Logo"> <!-- Replace with your Instagram logo URL -->
+            <img src="your_instagram_logo.png" alt="Instagram Logo">
         </a>
         <a href="https://www.linkedin.com/company/linda-films" class="social-icon" target="_blank">
-            <img src="your_linkedin_logo.png" alt="LinkedIn Logo"> <!-- Replace with your LinkedIn logo URL -->
+            <img src="your_linkedin_logo.png" alt="LinkedIn Logo">
         </a>
     </div>
 
@@ -281,33 +346,35 @@
     <main class="pt-32 pb-10">
         <div class="max-w-7xl mx-auto px-4">
             <!-- Section 1: Main Headings -->
-            <section class="mb-16 relative">
-                <h1 class="section-heading text-8xl font-bold mb-8">
+            <section class="mb-16 relative min-h-fit">
+                <h1 class="section-heading block w-full text-8xl font-bold mb-8">
                     FRAGIL
                     <img src="fragil.png" alt="Fragil Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-8xl font-bold mb-8">
                     PUNTO DE QUIEBRE
                     <img src="punto_de_quiebre.png" alt="Punto de Quiebre Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-8xl font-bold mb-8">
                     A GOLPE DE MARTILLO
                     <img src="a_golpe_de_martillo.png" alt="A Golpe de Martillo Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-8xl font-bold mb-8">
                     RAVE
                     <img src="rave.png" alt="Rave Info" class="hover-image">
                 </h1>
-                <h1 class="section-heading text-8xl font-bold mb-8">
+                <h1 class="section-heading block w-full text-8xl font-bold mb-8">
                     MANTIS
                     <img src="mantis.png" alt="Mantis Info" class="hover-image">
                 </h1>
-                <span class="scroll-arrow" data-target="gif-section">
-                    <svg width="24" height="60" viewBox="0 0 24 60">
-                        <line class="arrow-line" x1="12" y1="0" x2="12" y2="50" />
-                        <path class="arrow-tip" d="M12 60L8 56L12 52L16 56z" />
-                    </svg>
-                </span>
+                <div class="w-full flex justify-center mt-12">
+                    <span class="scroll-arrow" data-target="gif-section">
+                        <svg width="24" height="60" viewBox="0 0 24 60">
+                            <line class="arrow-line" x1="12" y1="0" x2="12" y2="50" />
+                            <path class="arrow-tip" d="M12 60L8 56L12 52L16 56z" />
+                        </svg>
+                    </span>
+                </div>
             </section>
 
             <!-- GIF Section -->
@@ -378,16 +445,16 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="footer-container">
                 <div class="footer-left">
-                    <img src="logo.png" alt="LINDAFILMS Logo" class="footer-logo"> <!-- Replace with your logo URL if different -->
+                    <img src="logo.png" alt="LINDAFILMS Logo" class="footer-logo">
                     <p class="text-sm">© 2025 LINDAFILMS. All rights reserved.</p>
                 </div>
                 <div class="footer-center">
                     <div class="footer-social">
                         <a href="https://www.instagram.com/lindafilms" class="social-icon" target="_blank">
-                            <img src="your_instagram_logo.png" alt="Instagram Logo"> <!-- Replace with your Instagram logo URL -->
+                            <img src="your_instagram_logo.png" alt="Instagram Logo">
                         </a>
                         <a href="https://www.linkedin.com/company/linda-films" class="social-icon" target="_blank">
-                            <img src="your_linkedin_logo.png" alt="LinkedIn Logo"> <!-- Replace with your LinkedIn logo URL -->
+                            <img src="your_linkedin_logo.png" alt="LinkedIn Logo">
                         </a>
                     </div>
                 </div>
@@ -409,10 +476,8 @@
             let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
             if (currentScroll > lastScrollTop) {
-                // Scrolling down
                 header.classList.add('hidden');
             } else {
-                // Scrolling up
                 header.classList.remove('hidden');
             }
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
@@ -442,7 +507,7 @@
                 if (targetElement) {
                     const rect = targetElement.getBoundingClientRect();
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const offsetTop = rect.top + scrollTop - 128; // Adjust for header height (pt-32)
+                    const offsetTop = rect.top + scrollTop - 128;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
@@ -474,10 +539,10 @@
                 if (arrow && rect.top <= window.innerHeight && rect.bottom >= 0) {
                     const sectionHeight = rect.height;
                     const scrollWithinSection = Math.max(0, window.innerHeight - rect.top);
-                    const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4; // Stretch line up to 5x
+                    const stretchFactor = 1 + (scrollWithinSection / sectionHeight) * 4;
                     const arrowLine = arrow.querySelector('.arrow-line');
                     if (arrowLine) {
-                        arrowLine.setAttribute('y2', 50 * stretchFactor); // Stretch line length
+                        arrowLine.setAttribute('y2', 50 * stretchFactor);
                     }
                     arrow.style.opacity = 0.8 + (scrollWithinSection / sectionHeight) * 0.2;
                 }
@@ -487,14 +552,14 @@
         // Touch event for section headings on mobile
         document.querySelectorAll('.section-heading').forEach(heading => {
             heading.addEventListener('touchstart', function(e) {
-                e.preventDefault(); // Prevent default touch behavior
+                e.preventDefault();
                 this.classList.add('active');
             }, { passive: false });
             heading.addEventListener('touchend', function() {
                 this.classList.remove('active');
             }, { passive: true });
             heading.addEventListener('touchmove', function(e) {
-                e.preventDefault(); // Prevent scrolling while dragging
+                e.preventDefault();
             }, { passive: false });
         });
     </script>
