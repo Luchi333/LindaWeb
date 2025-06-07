@@ -496,17 +496,38 @@
         } else {
             header.classList.remove('hidden');
         }
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 
-        // Ocultar imágenes al hacer scroll
-        document.querySelectorAll('.section-heading.active, .section-heading:hover').forEach(heading => {
-            heading.classList.add('fading');
-            setTimeout(() => {
-                heading.classList.remove('active', 'fading');
-            }, 400); // coincide con el CSS: transition: opacity 0.4s
-        });
+        // Solo ocultar imagen si es en móvil y ya está activa
+        if (window.innerWidth <= 768 && currentScroll > lastScrollTop) {
+            document.querySelectorAll('.section-heading.active').forEach(heading => {
+                heading.classList.add('fading');
+                setTimeout(() => {
+                    heading.classList.remove('active', 'fading');
+                }, 400); // coincide con el CSS
+            });
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
 </script>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const closeButton = document.querySelector('.close-button');
+
+    if (menuToggle && dropdownMenu) {
+        menuToggle.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('open');
+        });
+    }
+
+    if (closeButton && dropdownMenu) {
+        closeButton.addEventListener('click', () => {
+            dropdownMenu.classList.remove('open');
+        });
+    }
+</script>
+
 
 
         // ✅ NUEVO: Ocultar imagen activa al hacer scroll en móvil
