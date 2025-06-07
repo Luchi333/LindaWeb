@@ -190,11 +190,12 @@
         }
 
         /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            body {
-                overscroll-behavior-y: none;
-                -webkit-overflow-scrolling: touch;
-            }
+      @media (max-width: 768px) {
+    .hover-image {
+        width: 240px;
+        max-width: 90vw;
+        max-height: 60vh;
+    }
             .dropdown-menu {
                 width: 100%;
                 padding: 16px;
@@ -273,30 +274,33 @@
                 min-height: auto;
                 padding: 16px 0;
             }
-            #gif-section img {
-                max-width: 90vw;
-                height: auto;
-            }
-        }
-        @media (max-width: 480px) {
-            .section-heading {
-                font-size: 1.5rem; /* Even smaller for small screens */
-                word-break: break-word;
-            }
-            .hover-image {
-                width: 140px;
-                max-width: 80vw;
-            }
-            .dropdown-menu a {
-                font-size: 1.2rem;
-                padding: 8px 0;
-            }
-            .dropdown-menu .social-icon {
-                width: 24px;
-                height: 24px;
-            }
-            .close-button {
-                font-size: 1rem;
+#gif-section img {
+    max-width: 90vw;
+    height: auto;
+}
+}
+
+@media (max-width: 480px) {
+    .hover-image {
+        width: 200px;
+        max-width: 90vw;
+        max-height: 60vh;
+    }
+
+    .dropdown-menu a {
+        font-size: 1.2rem;
+        padding: 8px 0;
+    }
+
+    .dropdown-menu .social-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .close-button {
+        font-size: 1rem;
+    }
+
             }
             .scroll-arrow {
                 right: 4px;
@@ -347,7 +351,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <!-- Section 1: Main Headings -->
             <section class="mb-16 relative min-h-fit">
-<h1 class="section-heading block w-full text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-8">
+<h1 class="section-heading block w-full text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
                     FRAGIL
                     <img src="fragil.png" alt="Fragil Info" class="hover-image">
                 </h1>
